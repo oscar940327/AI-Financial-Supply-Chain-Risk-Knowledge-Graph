@@ -92,6 +92,30 @@ Follow the prompt to input a ticker and the pipeline will run end-to-end.
 
 ---
 
+## Market Sentiment Score / 市場情緒分數說明
+
+The sentiment output includes a `score` to quantify the strength of the signal.  
+系統在情緒分析結果中會提供 `score`，用來量化多空訊號的強度。
+
+- Range / 範圍：**-10 ~ +10**
+- Interpretation / 解讀方式：
+  - **+** : Bullish / 偏多
+  - **0** : Neutral / 中性
+  - **-** : Bearish / 偏空
+- Strength / 強度：`|score|` 越大代表訊號越強、越明確（模型判斷事件影響更明顯）
+
+Suggested reading / 建議參考區間（可自行調整）：
+- **+7 ~ +10**：Strong Bullish / 強烈偏多
+- **+3 ~ +6**：Bullish / 偏多
+- **-2 ~ +2**：Neutral or weak signal / 中性或訊號偏弱
+- **-3 ~ -6**：Bearish / 偏空
+- **-7 ~ -10**：Strong Bearish / 強烈偏空
+
+> Note / 注意：`score` 是由 LLM 根據新聞三元組內容綜合判斷的量化輸出，並非市場報酬的保證或投資建議。  
+> This score is an LLM-based heuristic, not financial advice.
+
+---
+
 ## ⚙️ Pipeline Architecture / 系統流程
 
 | Step | Module | What it does | 說明 |
